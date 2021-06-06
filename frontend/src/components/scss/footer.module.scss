@@ -1,0 +1,32 @@
+@import '../../scss/style';
+
+footer {
+    margin-top: 50px;
+    padding: 60px 200px;
+    background-color: $black;
+    color: $gold;
+
+    a {
+        color: $gold;
+        text-decoration: none;
+    }
+    .brand {
+        font: $heading4;
+    }
+
+    .sitelink, .social {
+        margin-left: 20px;
+        a {
+            margin-left: 20px;
+        }
+    }
+
+    .social a {
+        position: relative;
+        top: 5px;
+    }
+
+    .copyright {
+        margin-left: 20px;
+    }
+}

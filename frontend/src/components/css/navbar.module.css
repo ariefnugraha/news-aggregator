@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora&family=Merriweather:wght@400;700&display=swap");
+body {
+  margin: 0;
+  font: normal normal normal 16px/160% Lora, Serif;
+}
+
+.container {
+  max-width: 1520px;
+  margin: 0 auto;
+}
+
+.title {
+  font: normal normal 700 25px/160% Merriweather, Serif;
+  letter-spacing: 6px;
+}
+
+.title::first-letter {
+  color: #C9A227;
+  font: normal normal 700 30px/160% Merriweather, Serif;
+}
+
+@media (min-width: 992px) and (max-width: 1100px) {
+  .container {
+    max-width: 900px;
+  }
+}
+
+@media (min-width: 1101px) and (max-width: 1200px) {
+  .container {
+    max-width: 1100px;
+  }
+}
+
+@media (min-width: 1201px) and (max-width: 1400px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+nav h1 {
+  text-align: center;
+  font: normal normal 700 40px/160% Merriweather, Serif;
+  margin-block-end: 0;
+}
+
+nav p {
+  font: normal normal normal 16px/160% Lora, Serif;
+  text-align: center;
+  margin-block-start: 0;
+}
+
+nav .menu_container {
+  overflow: hidden;
+  border-top: solid 1px #000000;
+  border-bottom: solid 1px #000000;
+}
+
+nav .menu_container ul {
+  list-style: none;
+}
+
+nav .menu_container ul li {
+  margin-right: 20px;
+  display: inline-block;
+}
+
+nav .menu_container ul li a {
+  color: #000000;
+  text-decoration: none;
+  font: normal normal normal 14px/160% Lora, Serif;
+}
+
+nav .menu_container div.menu {
+  width: 60%;
+  float: left;
+}
+
+nav .menu_container div.right_menu {
+  width: 40%;
+  float: left;
+}
+
+nav .menu_container div.right_menu li {
+  float: right;
+}
+
+nav .menu_container div.right_menu li form {
+  position: relative;
+  top: -5px;
+}
+
+nav .menu_container div.right_menu li form input {
+  border: solid 1px #C5C5C5;
+  border-radius: 50px;
+  padding: 10px 60px 10px 20px;
+  outline: none;
+}
+
+nav .menu_container div.right_menu li form button {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background: url("../../assets/icons/search.svg") no-repeat;
+  border: none;
+}
+/*# sourceMappingURL=navbar.module.css.map */

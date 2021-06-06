@@ -1,0 +1,70 @@
+@import '../../scss/style';
+
+
+nav {
+    h1 {
+        text-align: center;
+        font: $heading1;
+        margin-block-end: 0;
+    }
+    
+    p {
+        font: $regular;
+        text-align: center;
+        margin-block-start: 0;
+    }
+
+    .menu_container {
+        overflow: hidden;
+        border-top: solid 1px $black;
+        border-bottom: solid 1px $black;
+        ul {
+            list-style: none;
+    
+            li {
+                margin-right: 20px;
+                display: inline-block;
+                
+                a {
+                    color: $black;
+                    text-decoration: none;
+                    font: $small;
+                }
+            }
+        }
+    
+        div.menu {
+            width: 60%;
+            float: left;
+        }
+    
+        div.right_menu {
+            width: 40%;
+            float: left;
+
+            li {
+                float: right;
+                form {
+                    position: relative;
+                    top: -5px;
+                    input {
+                        border: solid 1px $gray4;
+                        border-radius: 50px;
+                        padding: 10px 60px 10px 20px;
+                        outline: none;
+                    }
+                    button {
+                        position: absolute;
+                        top: 50%;
+                        right: 20px;
+                        transform: translateY(-50%);
+                        width: 20px;
+                        height: 20px;
+                        background: url("../../assets/icons/search.svg") no-repeat;
+                        border: none;
+                    }
+                }
+            }
+        }
+    }    
+}

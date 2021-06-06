@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora&family=Merriweather:wght@400;700&display=swap");
+body {
+  margin: 0;
+  font: normal normal normal 16px/160% Lora, Serif;
+}
+
+.container {
+  max-width: 1520px;
+  margin: 0 auto;
+}
+
+.title {
+  font: normal normal 700 25px/160% Merriweather, Serif;
+  letter-spacing: 6px;
+}
+
+.title::first-letter {
+  color: #C9A227;
+  font: normal normal 700 30px/160% Merriweather, Serif;
+}
+
+@media (min-width: 992px) and (max-width: 1100px) {
+  .container {
+    max-width: 900px;
+  }
+}
+
+@media (min-width: 1101px) and (max-width: 1200px) {
+  .container {
+    max-width: 1100px;
+  }
+}
+
+@media (min-width: 1201px) and (max-width: 1400px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+footer {
+  margin-top: 50px;
+  padding: 60px 200px;
+  background-color: #000000;
+  color: #C9A227;
+}
+
+footer a {
+  color: #C9A227;
+  text-decoration: none;
+}
+
+footer .brand {
+  font: normal normal 700 25px/160% Merriweather, Serif;
+}
+
+footer .sitelink, footer .social {
+  margin-left: 20px;
+}
+
+footer .sitelink a, footer .social a {
+  margin-left: 20px;
+}
+
+footer .social a {
+  position: relative;
+  top: 5px;
+}
+
+footer .copyright {
+  margin-left: 20px;
+}
+/*# sourceMappingURL=footer.module.css.map */
