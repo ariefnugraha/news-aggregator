@@ -1,0 +1,115 @@
+@import '../../scss/style';
+
+nav.navbar {
+    max-width: 1520px;
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    border-bottom: solid 2px $black;
+    transition: 0.5s;
+    background: $white;
+    z-index: 2;
+    .menu {
+        @include flex-row;
+
+        ul {
+            width: 70%;
+            margin-block-start: 0;
+            padding-inline-start: 0;
+            li {
+                display: inline;
+                
+                a {
+                    padding: 0 20px;
+                    text-decoration: none;
+                    color: $black;
+                    font: $small;
+                }
+
+                &:first-child a {padding-left: 0;}
+                &:last-child a {padding-right: 0;}
+            }
+        }
+
+        form {
+            @include flex-row;
+
+            position: relative;
+            width: 30%;
+            justify-content: flex-end;
+            font: $small;
+            input {
+                width: 230px;
+                padding: 10px 55px 10px 20px;
+                box-sizing: border-box;
+                border-radius: 20px;
+                border: none;
+                background-color: $black;
+                color: $white;
+                outline: none;
+            }
+
+            button {
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                top: 50%;
+                right: 5%;
+                transform: translateY(-50%);
+                background: url("../../assets/icons/search-white.svg") no-repeat;
+                border: none;
+            }
+        }
+    }
+
+    .nav_title {
+        @include flex-row;
+        margin-top: 10px;
+        .back_container {
+            width: calc(78 - 30px);
+            height: 48px;
+            margin-right: 30px;
+
+            a {
+                display: block;
+                width: 48px;
+                height: 48px;
+                background: url("../../assets/icons/back.svg") no-repeat;
+            }
+        }
+
+        .main_title {
+            width: calc(auto - 78px);
+            margin-right: 30px;
+
+            p:first-child {
+                margin-block-end: 5px;
+                font: $heading5;
+            }
+
+            p:nth-child(2) {
+                text-align: left;
+
+                a {
+                    color: $black;
+                    text-decoration: none;
+
+                    &:hover {text-decoration: underline;}
+                }
+            }
+        }
+
+        .share {
+            @include flex-row;
+            width: auto;
+            justify-content: flex-end;
+            p:first-child {
+                font: $heading5;
+            }
+        }
+    }
+}

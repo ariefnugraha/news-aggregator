@@ -1,0 +1,168 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora&family=Merriweather:wght@400;700&display=swap");
+body {
+  margin: 0;
+  font: normal normal normal 16px/160% Lora, Serif;
+}
+
+.container {
+  max-width: 1520px;
+  margin: 0 auto;
+}
+
+.title {
+  font: normal normal 700 25px/160% Merriweather, Serif;
+  letter-spacing: 6px;
+}
+
+.title::first-letter {
+  color: #C9A227;
+  font: normal normal 700 30px/160% Merriweather, Serif;
+}
+
+@media (min-width: 992px) and (max-width: 1100px) {
+  .container {
+    max-width: 900px;
+  }
+}
+
+@media (min-width: 1101px) and (max-width: 1200px) {
+  .container {
+    max-width: 1100px;
+  }
+}
+
+@media (min-width: 1201px) and (max-width: 1400px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+nav.navbar {
+  max-width: 1520px;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-bottom: solid 2px #000000;
+  transition: 0.5s;
+  background: #ffffff;
+  z-index: 2;
+}
+
+nav.navbar .menu {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+nav.navbar .menu ul {
+  width: 70%;
+  margin-block-start: 0;
+  padding-inline-start: 0;
+}
+
+nav.navbar .menu ul li {
+  display: inline;
+}
+
+nav.navbar .menu ul li a {
+  padding: 0 20px;
+  text-decoration: none;
+  color: #000000;
+  font: normal normal normal 14px/160% Lora, Serif;
+}
+
+nav.navbar .menu ul li:first-child a {
+  padding-left: 0;
+}
+
+nav.navbar .menu ul li:last-child a {
+  padding-right: 0;
+}
+
+nav.navbar .menu form {
+  display: flex;
+  flex-flow: row wrap;
+  position: relative;
+  width: 30%;
+  justify-content: flex-end;
+  font: normal normal normal 14px/160% Lora, Serif;
+}
+
+nav.navbar .menu form input {
+  width: 230px;
+  padding: 10px 55px 10px 20px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  border: none;
+  background-color: #000000;
+  color: #ffffff;
+  outline: none;
+}
+
+nav.navbar .menu form button {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  right: 5%;
+  transform: translateY(-50%);
+  background: url("../../assets/icons/search-white.svg") no-repeat;
+  border: none;
+}
+
+nav.navbar .nav_title {
+  display: flex;
+  flex-flow: row wrap;
+  margin-top: 10px;
+}
+
+nav.navbar .nav_title .back_container {
+  width: calc(78 - 30px);
+  height: 48px;
+  margin-right: 30px;
+}
+
+nav.navbar .nav_title .back_container a {
+  display: block;
+  width: 48px;
+  height: 48px;
+  background: url("../../assets/icons/back.svg") no-repeat;
+}
+
+nav.navbar .nav_title .main_title {
+  width: calc(auto - 78px);
+  margin-right: 30px;
+}
+
+nav.navbar .nav_title .main_title p:first-child {
+  margin-block-end: 5px;
+  font: normal normal 700 20px/160% Merriweather, Serif;
+}
+
+nav.navbar .nav_title .main_title p:nth-child(2) {
+  text-align: left;
+}
+
+nav.navbar .nav_title .main_title p:nth-child(2) a {
+  color: #000000;
+  text-decoration: none;
+}
+
+nav.navbar .nav_title .main_title p:nth-child(2) a:hover {
+  text-decoration: underline;
+}
+
+nav.navbar .nav_title .share {
+  display: flex;
+  flex-flow: row wrap;
+  width: auto;
+  justify-content: flex-end;
+}
+
+nav.navbar .nav_title .share p:first-child {
+  font: normal normal 700 20px/160% Merriweather, Serif;
+}
+/*# sourceMappingURL=navbar-detail.module.css.map */
