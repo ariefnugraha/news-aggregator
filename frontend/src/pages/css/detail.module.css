@@ -1,0 +1,133 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora&family=Merriweather:wght@400;700&display=swap");
+body {
+  margin: 0;
+  font: normal normal normal 16px/160% Lora, Serif;
+}
+
+.container {
+  max-width: 1520px;
+  margin: 0 auto;
+}
+
+.title {
+  font: normal normal 700 25px/160% Merriweather, Serif;
+  letter-spacing: 6px;
+}
+
+.title::first-letter {
+  color: #C9A227;
+  font: normal normal 700 30px/160% Merriweather, Serif;
+}
+
+@media (min-width: 992px) and (max-width: 1100px) {
+  .container {
+    max-width: 900px;
+  }
+}
+
+@media (min-width: 1101px) and (max-width: 1200px) {
+  .container {
+    max-width: 1100px;
+  }
+}
+
+@media (min-width: 1201px) and (max-width: 1400px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+.title {
+  letter-spacing: normal;
+}
+
+.article {
+  max-width: 900px;
+  margin: 0 auto;
+  margin-top: 50px;
+  font: normal normal normal 16px/160% Lora, Serif;
+}
+
+.article h1 {
+  font: normal normal 700 35px/160% Merriweather, Serif;
+  text-align: center;
+}
+
+.article .subtitle {
+  color: #777777;
+}
+
+.article .image {
+  width: 100%;
+  height: 500px;
+}
+
+.article .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.article .info {
+  margin: 10px 0;
+  font: normal normal normal 14px/160% Lora, Serif;
+  text-align: center;
+}
+
+.article .info a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.article .info span {
+  padding: 0 20px;
+}
+
+.article hr {
+  margin-bottom: 30px;
+}
+
+.article .writer {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.article .writer a {
+  font: normal normal 700 16px/160% Merriweather, Serif;
+  color: #C9A227;
+  text-decoration: none;
+}
+
+.article .read_original {
+  color: #C9A227;
+  padding: 5px 10px;
+  border-radius: 20px;
+  border: solid 1px #C9A227;
+  text-decoration: none;
+}
+
+.more {
+  position: relative;
+  border-top: solid 1px #000000;
+}
+
+.more::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #000000;
+}
+
+.more .flex {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0 -15px;
+}
+
+.more .flex .news_card {
+  width: calc(25% - 20px);
+}
+/*# sourceMappingURL=detail.module.css.map */

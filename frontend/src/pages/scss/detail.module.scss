@@ -1,0 +1,87 @@
+@import '../../scss/style';
+
+.title {letter-spacing: normal;}
+.article {
+    max-width: 900px;
+    margin: 0 auto;
+    margin-top: 50px;
+    font: $regular;
+    h1 {
+        font: $heading2;
+        text-align: center;
+    }
+
+    .subtitle {
+        color: $gray2;
+    }
+
+    .image {
+        width: 100%;
+        height: 500px;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .info {
+        margin: 10px 0;
+        font: $small;
+        text-align: center;
+        a {
+            text-decoration: none;
+            color: $black;
+        }
+
+        span {
+            padding: 0 20px;
+        }
+    }
+
+    hr {
+        margin-bottom: 30px;
+    }
+    .writer {
+        display: inline-block;
+        margin-right: 20px;
+        a {
+            font: $heading6;
+            color: $gold;
+            text-decoration: none;
+        }
+    }
+
+    .read_original {
+        color: $gold;
+        padding: 5px 10px;
+        border-radius: 20px;
+        border: solid 1px $gold;
+        text-decoration: none;
+    }
+}
+
+.more {
+    position: relative;
+    border-top: solid 1px $black;
+    
+    &::before {
+        content: "";
+        position: absolute;
+        top: 10px;
+        display: block;
+        width: 100%;
+        height: 1px;
+        background: $black;
+    }
+    
+    .flex {
+         @include flex-row;
+        margin: 0 -15px;
+        .news_card {
+            width: calc(25% - 20px);
+        }
+    }
+    
+}
