@@ -37,9 +37,15 @@ body {
   }
 }
 
+nav {
+  position: relative;
+  transition: 0.5s;
+}
+
 nav h1 {
   text-align: center;
   font: normal normal 700 40px/160% Merriweather, Serif;
+  margin-block-start: 0;
   margin-block-end: 0;
 }
 

@@ -2,9 +2,13 @@
 
 
 nav {
+    position: relative;
+    transition: 0.5s;
+
     h1 {
         text-align: center;
         font: $heading1;
+        margin-block-start: 0;
         margin-block-end: 0;
     }
     
