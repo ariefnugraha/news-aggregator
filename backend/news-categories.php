@@ -4,7 +4,7 @@ require 'vendor/autoload.php';
 
 use jcobhams\NewsApi\NewsApi;
 
-$newsapi = new NewsApi("29fefd8f54de441fa6a8cc60f9f1822f");
+$newsapi = new NewsApi("f0334f42a2824a0ca3257c34ec177893");
 
 //array to store category from db
 $storeCategory = array();
@@ -19,6 +19,8 @@ if ($stmtCategory->num_rows() > 0) {
     while ($stmtCategory->fetch()) {
         array_push($storeCategory, $name);
     }
+} else {
+    echo 'ggal';
 }
 
 //get data from api based on category
