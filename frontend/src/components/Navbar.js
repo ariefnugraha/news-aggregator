@@ -3,9 +3,9 @@ import style from './css/navbar.module.css';
 
 import { Link } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = (props) => {
     return (
-        <nav>
+        <nav style={props.forStyle}>
             <h1>The Indonesia Times</h1>
             <p>We Give You True Story</p>
             <div className={style.menu_container}>
