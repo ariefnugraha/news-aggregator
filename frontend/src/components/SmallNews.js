@@ -1,11 +1,13 @@
 import style from './css/smallnews.module.css';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const NewsList = () => {
     return (
         <div className={style.small_news}>
             <div className={style.image}>
-                <img src="https://mojok.co/wp-content/uploads/2019/06/menangis-laki-laki.jpg" alt="TITLE" />
+                <Link to="">
+                    <img src="https://mojok.co/wp-content/uploads/2019/06/menangis-laki-laki.jpg" alt="TITLE" />
+                </Link>
             </div>
             <div className={style.caption}>
                 <h2>
