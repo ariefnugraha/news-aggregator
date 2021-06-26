@@ -50,7 +50,12 @@ section:last-child {
 .headline .flex {
   display: flex;
   flex-flow: row wrap;
-  margin-top: 30px;
+  margin: 30px 0 0 -20px;
+  width: calc(100% + 20px);
+}
+
+.headline .flex > * {
+  margin: 0 0 0 20px;
 }
 
 .latest .masonry {

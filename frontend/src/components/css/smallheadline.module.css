@@ -39,14 +39,8 @@ body {
 
 .small_headline {
   width: calc(25% - 20px);
-  margin-right: 20px;
+  box-sizing: border-box;
   border-right: solid 1px #000000;
-}
-
-.small_headline:last-child {
-  width: 24%;
-  margin-right: 0;
-  border-right: none;
 }
 
 .small_headline h2 a {

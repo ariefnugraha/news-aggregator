@@ -2,14 +2,8 @@
 
 .small_headline {
     width: calc(25% - 20px);
-    margin-right: 20px;
+    box-sizing: border-box;
     border-right: solid 1px $black;
-
-    &:last-child {
-        width: 24%;
-        margin-right: 0;
-        border-right: none;
-    }
 
     h2 {
         a {
