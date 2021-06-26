@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora&family=Merriweather:wght@400;700&display=swap");
+body {
+  margin: 0;
+  font: normal normal normal 16px/160% Lora, Serif;
+}
+
+.container {
+  max-width: 1520px;
+  margin: 0 auto;
+}
+
+.title {
+  font: normal normal 700 25px/160% Merriweather, Serif;
+  letter-spacing: 6px;
+}
+
+.title::first-letter {
+  color: #C9A227;
+  font: normal normal 700 30px/160% Merriweather, Serif;
+}
+
+@media (min-width: 992px) and (max-width: 1100px) {
+  .container {
+    max-width: 900px;
+  }
+}
+
+@media (min-width: 1101px) and (max-width: 1200px) {
+  .container {
+    max-width: 1100px;
+  }
+}
+
+@media (min-width: 1201px) and (max-width: 1400px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+.small_news {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  margin: 0 0 -20px -20px;
+  width: calc(100% + 20px);
+}
+
+.small_news > * {
+  margin: 0 0 20px 20px;
+}
+
+.small_news .image {
+  width: calc(30% - 20px);
+}
+
+.small_news .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.small_news .caption {
+  width: calc(70% - 20px);
+}
+
+.small_news .caption h2 a {
+  font: normal normal 700 20px/160% Merriweather, Serif;
+  text-decoration: none;
+  color: #000000;
+}
+
+.small_news .caption .category {
+  color: #C9A227;
+  text-decoration: none;
+  padding-right: 20px;
+}
+
+.small_news .caption span {
+  color: #777777;
+}
+/*# sourceMappingURL=smallnews.module.css.map */
