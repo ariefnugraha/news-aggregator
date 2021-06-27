@@ -5,7 +5,7 @@ require 'vendor/autoload.php';
 use jcobhams\NewsApi\NewsApi;
 
 $newsapi = new NewsApi("f0334f42a2824a0ca3257c34ec177893");
-$topHeadline = $newsapi->getTopHeadLines(null, null, "id", "general", 5, 5);
+$topHeadline = $newsapi->getTopHeadLines(null, null, "id", "general", 10);
 $news = $topHeadline->articles;
 
 

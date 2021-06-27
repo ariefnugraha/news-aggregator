@@ -26,7 +26,7 @@ if ($stmtCategory->num_rows() > 0) {
 //get data from api based on category
 
 foreach ($storeCategory as $key => $value) {
-    $topHeadline = $newsapi->getTopHeadLines(null, null, 'id', $value, 10, 10);
+    $topHeadline = $newsapi->getTopHeadLines(null, null, 'id', $value, 20);
     $storeNews = $topHeadline->articles;
 
     for ($i = 0; $i < count($storeNews); $i++) {
