@@ -7,7 +7,7 @@
     $category = "general";
     
     //$query = "SELECT id, title, description, image, category FROM articles WHERE category = ? ORDER BY id DESC LIMIT 5";
-    $query = "SELECT id, title, description, image, category, date_publish FROM articles LIMIT 10";
+    $query = "SELECT id, title, description, image, category, date_publish FROM articles ORDER BY id DESC LIMIT 10";
     $stmt = $conn->prepare($query);
     //$stmt->bind_param('s', $category);
     $stmt->execute();
