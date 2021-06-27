@@ -1,9 +1,25 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 import style from './css/navbar.module.css';
-
 import { Link } from 'react-router-dom';
 
 const Navbar = (props) => {
+    const [categories, setcategories] = useState([]);
+
+    useEffect(() => {
+        axios.get("http://localhost/news/backend/api/get/categories.php")
+        .then(response => setcategories(response.data))
+        .catch(error => console.log(error));
+    }, [])
+
+    const renderCategories = categories.map((category) => {
+        return (
+            <li>
+                <Link to="" key={category.id}>{category.name}</Link>
+            </li>
+        )
+    })
+
     return (
         <nav style={props.forStyle}>
             <h1>The Indonesia Times</h1>
@@ -14,21 +30,7 @@ const Navbar = (props) => {
                         <li>
                             <Link to="/">Home</Link>
                         </li>
-                        <li>
-                            <Link to="">Olahraga</Link>
-                        </li>
-                        <li>
-                            <Link to="">Hiburan</Link>
-                        </li>
-                        <li>
-                            <Link to="">Teknologi</Link>
-                        </li>
-                        <li>
-                            <Link to="">Kesehatan</Link>
-                        </li>
-                        <li>
-                            <Link to="">Sains</Link>
-                        </li>
+                        {renderCategories}
                     </ul>
                 </div>
 
