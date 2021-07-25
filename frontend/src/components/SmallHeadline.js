@@ -1,13 +1,17 @@
 import style from './css/smallheadline.module.css';
 import {Link} from 'react-router-dom';
 
-const SmallHeadline = () => {
+const SmallHeadline = ({title, category, time}) => {
     return (
         <div className={style.small_headline}>
             <h2>
-                <Link to="" title="Memahami Serba-Serbi NFT yang Makin Dilirik Investor Hingga Seniman di Indonesia">Memahami Serba-Serbi NFT yang Makin Dilirik Investor Hingga Seniman di Indonesia</Link>
+                <Link to={{
+                    pathname: "/detail",
+                    search: `${title}`,
+                    state: {newsTitle: title}
+                }} title={title}>{title}</Link>
             </h2>
-            <Link to="" className={style.category}>Ekonomi</Link>
+            <Link to="" className={style.category}>{category}</Link>
             <p>11:50</p>
         </div>
     )
