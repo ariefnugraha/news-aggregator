@@ -6,11 +6,19 @@ const MasonryItem = (props) => {
     let getHour = parseTime.toLocaleTimeString();
     return (
         <div className={style.masonry_item_container}>
-            <Link to="" title={props.title}>
+            <Link to={{
+                    pathname: "/detail",
+                    search: `${props.title}`,
+                    state: {newsTitle: props.title}
+                }} title={props.title}>
                 <img src={props.image} alt={props.title} />
             </Link>
             <h2>
-                <Link to="" title={props.title}>{props.title}</Link>
+                <Link to={{
+                    pathname: "/detail",
+                    search: `${props.title}`,
+                    state: {newsTitle: props.title}
+                }} title={props.title}>{props.title}</Link>
             </h2>
             <p>{props.description}</p>
             <span>
