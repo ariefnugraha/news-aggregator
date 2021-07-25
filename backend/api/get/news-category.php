@@ -4,11 +4,22 @@
     include "../../conn.php";
 
     $response = array();
-    $getCategory = $_GET['category'];
+    $getCategory = "general";//$_GET['category'];
+    $getId = 141; //$_GET['id'];
+    $getLimitData = 5;//$_GET['limit-data'];
     $news = array();
-    $query = "SELECT id, title, description, image FROM articles WHERE category = ? ORDER BY id DESC LIMIT 7";
-    $stmt = $conn->prepare($query);
+
+    if(isset($getLimitData) && isset($getId)) { 
+        //GET NEWS CATEGORY FOR DETAIL PAGE
+        $query = "SELECT id, title, description, image FROM articles WHERE category = ? AND id != ? ORDER BY id DESC LIMIT ?";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("sii", $getCategory, $getId, $getLimitData); 
+    } else {
+        $query = "SELECT id, title, description, image FROM articles WHERE category = ? ORDER BY id DESC LIMIT 7";
+        $stmt = $conn->prepare($query);
     $stmt->bind_param("s", $getCategory);
+    }
+    
     $stmt->execute();
     $stmt->store_result();
     $stmt->bind_result($id, $title, $description, $image);
@@ -30,4 +41,4 @@
     }
 
     echo json_encode($response);
-?>
+    ?>
