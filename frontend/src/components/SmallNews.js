@@ -1,20 +1,32 @@
 import style from './css/smallnews.module.css';
 import { Link } from 'react-router-dom';
 
-const NewsList = () => {
+const NewsList = ({ image, title, category, date }) => {
     return (
         <div className={style.small_news}>
             <div className={style.image}>
-                <Link to="">
-                    <img src="https://mojok.co/wp-content/uploads/2019/06/menangis-laki-laki.jpg" alt="TITLE" />
+                <Link to={{
+                    pathname: "/detail",
+                    search: title,
+                    state: { newsTitle: title }
+                }}>
+                    <img src={image} alt={title} />
                 </Link>
             </div>
             <div className={style.caption}>
                 <h2>
-                    <Link to="">Asahi daily, an official Tokyo Olympics partner, calls for cancellation of Games</Link>
+                    <Link to={{
+                        pathname: "/detail",
+                        search: title,
+                        state: { newsTitle: title }
+                    }}>{title}</Link>
                 </h2>
-                <Link to="#" className={style.category}>General</Link>
-                <span>12 January 2020</span>
+                <Link to={{
+                    pathname: "/category",
+                    search: category,
+                    state: category
+                }} className={style.category}>{category}</Link>
+                <span>{date}</span>
             </div>
         </div>
     )
