@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const NewsList = ({ image, title, category, date }) => {
     const month = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus' , 'September', 'Oktober', 'November', 'Desember'];
     let convertDate = new Date(date);
-    let dateComplete = `${convertDate.getDate()} ${month[convertDate.getMonth()]} ${convertDate.getFullYear()}, ${convertDate.getHours()}:${convertDate.getMinutes()}`;
+    let dateComplete = `${convertDate.getDate()} ${month[convertDate.getMonth()]} ${convertDate.getFullYear()}, ${convertDate.getHours()}:${convertDate.getMinutes() < 10 ? '0' : ''}${convertDate.getMinutes()}`;
     
     return (
         <div className={style.small_news}>
