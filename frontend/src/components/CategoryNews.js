@@ -13,6 +13,7 @@ const CategoryNews = (props) => {
         })
             .then(response => setNews(response.data))
             .catch(error => console.log(error));
+        //eslint-disable-next-line
     }, []);
 
     const renderNews = news.map((newsItem) => {
