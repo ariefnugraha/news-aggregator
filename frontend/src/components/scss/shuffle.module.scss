@@ -29,11 +29,16 @@
       }
 
       .info {
+        p {
+          margin: 10px 0;
+        }
+
         a {
           padding-right: 20px;
           font: $small;
           color: $gold;
           text-decoration: none;
+          text-transform: capitalize;
         }
 
         span {
