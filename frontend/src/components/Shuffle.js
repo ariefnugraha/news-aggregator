@@ -20,6 +20,7 @@ const Shuffle = ({ newsId }) => {
         })
             .then(response => setnews(response.data))
             .catch(error => console.log(error));
+        //eslint-disable-next-line
     }, []);
 
     if (news === undefined || news === null) {
