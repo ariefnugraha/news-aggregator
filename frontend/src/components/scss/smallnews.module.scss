@@ -3,10 +3,12 @@
 .small_news {
     @include flex-row;
     align-items: flex-start;
-    margin: 0 0 -20px -20px;
+    margin: 0 0 20px -20px;
     width: calc(100% + 20px);
+    padding-bottom: 20px;
+    border-bottom: solid 1px $gray4;
 
-    & > * {margin: 0 0 20px 20px;}
+    & > * {margin: 0 0 0px 20px;}
 
     .image {
         width: calc(30% - 20px);
