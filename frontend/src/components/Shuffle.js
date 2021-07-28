@@ -5,6 +5,7 @@ import style from './css/shuffle.module.css';
 import SmallNews from './SmallNews';
 
 const Shuffle = ({ newsId }) => {
+    const month = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
     const [news, setnews] = useState([{
         id: 0,
         image: "https://akcdn.detik.net.id/community/media/visual/2017/09/14/024a4104-dc93-4f94-920c-fedf21be10b0_169.jpg?w=620",
@@ -29,6 +30,8 @@ const Shuffle = ({ newsId }) => {
                 <SmallNews key={news.id} image={news.image} title={news.title} category={news.category} date={news.date} />
             )
         })
+        let bigShuffleDate = new Date(news[0].date);
+        let getDate = `${bigShuffleDate.getDate()} ${month[bigShuffleDate.getMonth()]} ${bigShuffleDate.getFullYear()}, ${bigShuffleDate.getHours()}:${bigShuffleDate.getMinutes() < 10 ? '0' : ''}${bigShuffleDate.getMinutes()}`;
 
         return (
             <div className={style.shuffle_container}>
@@ -46,12 +49,13 @@ const Shuffle = ({ newsId }) => {
                         </h2>
 
                         <div className={style.info}>
+                            <p>{news[0].description}</p>
                             <Link to={{
                                 pathname: "/category",
                                 search: news[0].title,
                                 state: { category: news[0].category }
                             }}>{news[0].category}</Link>
-                            <span>{news[0].date}</span>
+                            <span>{getDate}</span>
                         </div>
                     </div>
                 </div>
@@ -63,7 +67,4 @@ const Shuffle = ({ newsId }) => {
     }
 
 }
-
-
-
 export default Shuffle;
