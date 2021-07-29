@@ -1,87 +1,146 @@
-@import '../../scss/style';
+@import "../../scss/style";
 
-.title {letter-spacing: normal;}
+.title {
+  letter-spacing: normal;
+}
+.subtitle {
+  @include my-20;
+}
+
 .article {
-    max-width: 900px;
-    margin: 0 auto;
-    margin-top: 50px;
-    font: $regular;
-    h1 {
-        font: $heading2;
-        text-align: center;
+  @include mx-auto;
+  max-width: 900px;
+  margin-top: 50px;
+  padding-bottom: 30px;
+  font: $regular;
+  border-bottom: none;
+  h1 {
+    font: $heading2;
+    text-align: center;
+  }
+
+  .subtitle {
+    color: $gray2;
+  }
+
+  .image {
+    width: 100%;
+    height: 500px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      -o-object-fit: contain;
+      object-fit: contain;
+    }
+  }
+
+  .info {
+    margin: 10px 0;
+    font: $small;
+    text-align: center;
+    a {
+      text-decoration: none;
+      color: $black;
     }
 
-    .subtitle {
-        color: $gray2;
+    span {
+      padding: 0 20px;
     }
+  }
 
-    .image {
-        width: 100%;
-        height: 500px;
-
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+  hr {
+    @include my-20;
+    border-top: solid 1px $gray4;
+  }
+  .writer {
+    display: inline-block;
+    margin-right: 20px;
+    a {
+      font: $heading6;
+      color: $gold;
+      text-decoration: none;
     }
+  }
 
-    .info {
-        margin: 10px 0;
-        font: $small;
-        text-align: center;
-        a {
-            text-decoration: none;
-            color: $black;
-        }
+  .read_original {
+    color: $gold;
+    padding: 5px 10px;
+    border-radius: 20px;
+    border: solid 1px $gold;
+    text-decoration: none;
 
-        span {
-            padding: 0 20px;
-        }
+    &:hover {
+      background: $gold;
+      color: $black;
+      transition: 0.5s;
     }
-
-    hr {
-        margin-bottom: 30px;
-    }
-    .writer {
-        display: inline-block;
-        margin-right: 20px;
-        a {
-            font: $heading6;
-            color: $gold;
-            text-decoration: none;
-        }
-    }
-
-    .read_original {
-        color: $gold;
-        padding: 5px 10px;
-        border-radius: 20px;
-        border: solid 1px $gold;
-        text-decoration: none;
-    }
+  }
 }
 
 .more {
-    position: relative;
-    border-top: solid 1px $black;
-    
-    &::before {
-        content: "";
-        position: absolute;
-        top: 10px;
-        display: block;
-        width: 100%;
-        height: 1px;
-        background: $black;
+  position: relative;
+  padding-top: 30px;
+  border-top: solid 1px $black;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: $black;
+  }
+
+  .flex {
+    @include flex-row;
+    margin: 20px -15px;
+    .news_card {
+      width: calc(25% - 20px);
     }
-    
-    .flex {
-         @include flex-row;
-        margin: 0 -15px;
-        .news_card {
-            width: calc(25% - 20px);
-        }
+  }
+}
+
+@media (max-width: 767px) {
+  .container .article .writer {
+    margin-right: 0;
+  }
+}
+@media (max-width: 991px) {
+  .container {
+    .article,
+    .latest,
+    .shuffle {
+      @include px-20;
     }
-    
+
+    .article {
+      margin-top: 30px;
+      h1 {
+        text-align: left;
+        font-size: 20px;
+      }
+
+      .image {
+        height: 200px;
+      }
+
+      .info {
+        font-size: 12px;
+      }
+
+      .read_original {
+        display: inline-block;
+        margin-top: 10px;
+      }
+    }
+
+    .more {
+      @include mx-20;
+      .flex {
+        margin: 0px -15px;
+      }
+    }
+  }
 }
