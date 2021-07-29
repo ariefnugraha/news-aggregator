@@ -14,6 +14,12 @@ body {
   font: normal normal normal 16px/160% Lora, Serif;
 }
 
+@media (max-width: 991px) {
+  body {
+    font-size: 14px;
+  }
+}
+
 .container {
   max-width: 1520px;
   margin: 0 auto;
@@ -29,6 +35,15 @@ body {
   font: normal normal 700 30px/160% Merriweather, Serif;
 }
 
+@media (max-width: 991px) {
+  .title {
+    font-size: 20px;
+  }
+  .title::first-letter {
+    font-size: 25px;
+  }
+}
+
 .loadmore {
   display: block;
   background: #C9A227;
@@ -36,6 +51,12 @@ body {
   border-radius: 5px;
   margin: 0 auto;
   padding: 10px 20px;
+}
+
+@media (max-width: 992px) {
+  .load-more {
+    font-size: 14px;
+  }
 }
 
 @media (min-width: 992px) and (max-width: 1100px) {
@@ -123,5 +144,72 @@ body {
 
 .news_list .news_item p {
   color: #777777;
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .news_list > * {
+    margin-left: 20px !important;
+  }
+  .news_list .news_item:first-child, .news_list .news_item:nth-child(n+2):nth-child(-n+3), .news_list .news_item:nth-child(n + 4):nth-child(-n + 7) {
+    width: calc(50% - 20px) !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .news_list {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+  }
+  .news_list > * {
+    margin-left: 0;
+  }
+  .news_list .news_item {
+    margin-bottom: 20px;
+  }
+  .news_list .news_item:first-child {
+    width: 100%;
+    margin-left: 0;
+  }
+  .news_list .news_item:first-child > * {
+    margin-left: 0;
+  }
+  .news_list .news_item:first-child .image_container {
+    order: 1;
+    width: 100%;
+  }
+  .news_list .news_item:first-child .news_caption {
+    order: 2;
+    width: 100%;
+    margin-top: 10px;
+  }
+  .news_list .news_item:nth-child(n+2):nth-child(-n+3) {
+    width: 100%;
+  }
+  .news_list .news_item:nth-child(n+2):nth-child(-n+3) .news_caption {
+    margin-top: 10px;
+  }
+  .news_list .news_item:nth-child(n + 4):nth-child(-n + 7) {
+    width: 100%;
+    border-right: none;
+  }
+  .news_list .news_item:nth-child(n + 4):nth-child(-n + 7) h2 {
+    min-height: unset;
+  }
+  .news_list .news_item:last-child {
+    margin-bottom: 0;
+  }
+  .news_list .news_item .caption {
+    margin-top: 10px;
+  }
+  .news_list .news_item h2 {
+    margin-bottom: 10px;
+  }
+  .news_list .news_item h2 a {
+    font-size: 14px;
+  }
+  .news_list .news_item p {
+    font-size: 12px;
+  }
 }
 /*# sourceMappingURL=categorynews.module.css.map */

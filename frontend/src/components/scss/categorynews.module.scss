@@ -50,8 +50,8 @@
                    object-fit: cover;
             }
         }
-        h2 {
-            
+
+        h2 {        
             a {
                 font: $heading5;
                 color: $black;
@@ -62,6 +62,88 @@
         p {
             color: $gray2;
         }
+    }   
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .news_list {
+        & > * {
+            margin-left: 20px !important;
+        }
+
+        .news_item {
+            &:first-child, &:nth-child(n+2):nth-child(-n+3), &:nth-child(n + 4):nth-child(-n + 7) {
+                width: calc(50% - 20px) !important;
+            }
+        }
     }
-    
+}
+
+@media (max-width: 991px) {
+    .news_list {
+        @include mx-20;
+        margin-top: 10px;
+        
+        & > * {
+            margin-left: 0;
+        }
+
+        .news_item {
+            margin-bottom: 20px;
+
+            &:first-child {
+                width: 100%;
+                margin-left: 0;
+
+                & > * {
+                    margin-left: 0;
+                }
+                .image_container {
+                    order: 1;
+                    width: 100%;
+                }
+
+                .news_caption {
+                    order: 2;
+                    width: 100%;
+                    margin-top: 10px;
+                }
+            }
+
+            &:nth-child(n+2):nth-child(-n+3) {
+                width: 100%;
+
+                .news_caption {
+                    margin-top: 10px;
+                }
+            }
+
+            &:nth-child(n + 4):nth-child(-n + 7) {
+                width: 100%;
+                border-right: none;
+
+                h2 {
+                    min-height: unset;
+                }
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+            .caption {
+                margin-top: 10px;
+            }
+            
+            h2 {
+                margin-bottom: 10px;
+                a {
+                    font-size: 14px;
+                }
+            }
+
+            p {
+                font-size: 12px;
+            }
+        }
+    }
 }
