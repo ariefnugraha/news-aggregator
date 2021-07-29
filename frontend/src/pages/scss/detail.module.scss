@@ -124,6 +124,9 @@
 
       .image {
         height: 200px;
+        img {
+            object-fit: cover;
+        }
       }
 
       .info {

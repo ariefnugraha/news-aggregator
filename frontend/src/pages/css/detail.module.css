@@ -211,6 +211,9 @@ body {
   .container .article .image {
     height: 200px;
   }
+  .container .article .image img {
+    object-fit: cover;
+  }
   .container .article .info {
     font-size: 12px;
   }
