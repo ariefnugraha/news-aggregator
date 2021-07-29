@@ -1,18 +1,29 @@
 import style from './css/newscard.module.css';
 import { Link } from 'react-router-dom';
-const NewsCard = (props) => {
+const NewsCard = ({ width, title, description, image }) => {
+    let sliceText;
+    title.length > 80 ? sliceText = `${title.substr(0,55)}...` : sliceText = title;
+
     return (
-        <div className={style.news_card} style={props.width}>
+        <div className={style.news_card} style={width}>
             <div className={style.news_image}>
-                <Link to="#">
-                    <img src="https://mojok.co/wp-content/uploads/2019/06/menangis-laki-laki.jpg" alt="TITLE" />
+                <Link to={{
+                    pathname: "/detail",
+                    search: `${title}`,
+                    state: { newsTitle: title }
+                }}>
+                    <img src={image} alt={title} />
                 </Link>
             </div>
             <div className={style.news_caption}>
                 <h2>
-                    <Link to="">Indonesia’s beloved pop/rock band Naif officially disbands after 25 years</Link>
+                    <Link to={{ 
+                        pathname: "/detail",
+                        search: `${title}`,
+                        state: { newsTitle: title }
+                    }} title={title}>{sliceText}</Link>
                 </h2>
-                <p>Indonesia’s beloved pop/rock band Naif officially disbands after 25 years</p>
+                <p>{description}</p>
             </div>
         </div>
     )
