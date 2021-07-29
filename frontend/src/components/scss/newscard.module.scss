@@ -5,7 +5,7 @@
     padding: 0 15px;
     .news_image {
         width: 100%;
-
+        height: 120px;
         img {
             width: 100%;
             height: 100%;
@@ -24,6 +24,31 @@
         p {
             margin-block-start: 5px;
             font: $small;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .news_card {
+        width: 100% !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .news_card {
+        width: 50% !important;
+    }
+}
+
+@media (max-width: 991px) {
+    .news_card {
+        @include my-20;
+        .news_image {
+            height: 200px;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
         }
     }
 }
