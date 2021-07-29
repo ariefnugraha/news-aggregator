@@ -1,4 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Lora&family=Merriweather:wght@400;700&display=swap");
+p, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+.loadmore {
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
 body {
   margin: 0;
   font: normal normal normal 16px/160% Lora, Serif;
@@ -17,6 +27,15 @@ body {
 .title::first-letter {
   color: #C9A227;
   font: normal normal 700 30px/160% Merriweather, Serif;
+}
+
+.loadmore {
+  display: block;
+  background: #C9A227;
+  font: normal normal 700 20px/160% Merriweather, Serif;
+  border-radius: 5px;
+  margin: 0 auto;
+  padding: 10px 20px;
 }
 
 @media (min-width: 992px) and (max-width: 1100px) {
@@ -42,25 +61,31 @@ body {
   flex-flow: row wrap;
 }
 
+.news_list > * {
+  margin-left: 20px;
+}
+
 .news_list .news_item:first-child {
   display: flex;
   flex-flow: row-reverse wrap;
-  width: calc(60% - 20px);
-  margin-right: 20px;
+  width: calc(60% + 20px);
+  margin-left: -20px;
+}
+
+.news_list .news_item:first-child > * {
+  margin-left: 20px;
 }
 
 .news_list .news_item:first-child .news_caption {
   width: calc(40% - 20px);
-  margin-right: 20px;
 }
 
 .news_list .news_item:first-child .image_container {
-  width: 60%;
+  width: calc(60% - 20px);
 }
 
 .news_list .news_item:nth-child(n+2):nth-child(-n+3) {
   width: calc(20% - 20px);
-  margin-right: 20px;
 }
 
 .news_list .news_item:nth-child(n+2):nth-child(-n+3) .image_container {
@@ -70,16 +95,10 @@ body {
 
 .news_list .news_item:nth-child(n + 4):nth-child(-n + 7) {
   margin-top: 30px;
-  width: calc(25% - 40px);
-  margin-right: 20px;
+  width: calc(25% - 20px);
   padding-right: 20px;
   border-right: solid 1px #000000;
-}
-
-.news_list .news_item:nth-child(n + 4):nth-child(-n + 7):last-child {
-  width: 23.4%;
-  margin-right: 0;
-  border-right: none;
+  box-sizing: border-box;
 }
 
 .news_list .news_item:nth-child(n + 4):nth-child(-n + 7) .image_container {
