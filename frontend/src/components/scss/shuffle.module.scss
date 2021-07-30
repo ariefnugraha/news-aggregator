@@ -2,6 +2,7 @@
 
 .shuffle_container {
   @include flex-row;
+  @include my-20;
 
   .big_news_container {
     width: calc(50% - 30px);
@@ -57,6 +58,25 @@
       display: block;
       width: 1px;
       height: auto;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .shuffle_container {
+    .big_news_container {
+      width: 100%;
+      margin-right: 0px;
+
+      .news_image {
+        height: auto;
+      }
+    }
+
+    .small_news_container {
+      width: 100%;
+      margin-top: 20px;
+      margin-left: 0;
     }
   }
 }
