@@ -29,3 +29,30 @@
         }
     }
 }
+
+@media (max-width: 992px) {
+    .big_headline {
+        h1 {
+            font-size: 20px;
+            text-align: left;
+        }
+
+        p {
+            margin: 10px 0;
+            text-align: left;
+        }
+
+        .image_container {
+            height: 200px;
+        }
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .big_headline .image_container {
+        height: 400px;
+        img {
+            object-fit: cover;
+        }
+    }
+}
