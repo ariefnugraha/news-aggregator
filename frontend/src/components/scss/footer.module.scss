@@ -30,3 +30,28 @@ footer {
         margin-left: 20px;
     }
 }
+
+@media (max-width: 767px) {
+    footer {
+        padding: 50px 20px !important;
+    }
+}
+@media (max-width: 992px) {
+    footer {
+        margin-top: 30px;
+        padding: 50px;
+
+        .sitelink, .social {
+            display: block;
+            margin: 20px 0;
+
+            a:first-child {
+                margin-left: 0;
+            }
+        }
+
+        .copyright {
+            margin-left: 0;
+        }
+    }
+}
