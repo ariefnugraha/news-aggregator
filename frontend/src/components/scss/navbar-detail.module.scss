@@ -1,115 +1,183 @@
-@import '../../scss/style';
+@import "../../scss/style";
 
 nav.navbar {
-    max-width: 1520px;
-    margin: 0 auto;
-    padding-top: 20px;
-    padding-bottom: 10px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    border-bottom: solid 2px $black;
-    transition: 0.5s;
-    background: $white;
-    z-index: 2;
-    .menu {
-        @include flex-row;
+  max-width: 1520px;
+  margin: 0 auto;
+  padding-top: 0px;
+  padding-bottom: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-bottom: solid 2px $black;
+  transition: 0.5s;
+  background: $white;
+  z-index: 2;
+  .menu {
+    @include flex-row;
+    padding-left: 60px;
+    padding-right: 60px;
+    ul {
+      width: 70%;
+      -webkit-margin-before: 0;
+              margin-block-start: 0;
+      -webkit-padding-start: 0;
+              padding-inline-start: 0;
+      li {
+        display: inline;
 
-        ul {
-            width: 70%;
-            margin-block-start: 0;
-            padding-inline-start: 0;
-            li {
-                display: inline;
-                
-                a {
-                    padding: 0 20px;
-                    text-decoration: none;
-                    color: $black;
-                    font: $small;
-                }
-
-                &:first-child a {padding-left: 0;}
-                &:last-child a {padding-right: 0;}
-            }
+        a {
+          padding: 0 20px;
+          text-decoration: none;
+          color: $black;
+          font: $small;
         }
 
-        form {
-            @include flex-row;
-
-            position: relative;
-            width: 30%;
-            justify-content: flex-end;
-            font: $small;
-            input {
-                width: 230px;
-                padding: 10px 55px 10px 20px;
-                box-sizing: border-box;
-                border-radius: 20px;
-                border: none;
-                background-color: $black;
-                color: $white;
-                outline: none;
-            }
-
-            button {
-                position: absolute;
-                width: 20px;
-                height: 20px;
-                top: 50%;
-                right: 5%;
-                transform: translateY(-50%);
-                background: url("../../assets/icons/search-white.svg") no-repeat;
-                border: none;
-            }
+        &:first-child a {
+          padding-left: 0;
         }
+        &:last-child a {
+          padding-right: 0;
+        }
+      }
     }
 
-    .nav_title {
-        @include flex-row;
-        margin-top: 10px;
-        .back_container {
-            width: calc(78 - 30px);
-            height: 48px;
-            margin-right: 30px;
+    form {
+      @include flex-row;
 
-            a {
-                display: block;
-                width: 48px;
-                height: 48px;
-                background: url("../../assets/icons/back.svg") no-repeat;
-            }
-        }
+      position: relative;
+      width: 30%;
+      justify-content: flex-end;
+      font: $small;
+      input {
+        width: 230px;
+        padding: 10px 55px 10px 20px;
+        box-sizing: border-box;
+        border-radius: 20px;
+        border: none;
+        background-color: $black;
+        color: $white;
+        outline: none;
+      }
 
-        .main_title {
-            width: calc(auto - 78px);
-            margin-right: 30px;
+      button {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        top: 50%;
+        right: 5%;
+        transform: translateY(-50%);
+        background: url("../../assets/icons/search-white.svg") no-repeat;
+        border: none;
+      }
+    }
+  }
 
-            p:first-child {
+  .nav_title {
+    @include flex-row;
+    margin-top: 30px;
+    padding-left: 60px;
+    padding-right: 60px;
+    .back_container {
+      width: calc(78px - 30px);
+      height: 48px;
+      margin-right: 30px;
+
+      a {
+        display: block;
+        width: 48px;
+        height: 48px;
+        background: url("../../assets/icons/back.svg") no-repeat;
+      }
+    }
+
+    .main_title {
+      width: auto;
+      margin-right: 30px;
+
+      p:first-child {
+        -webkit-margin-after: 5px;
                 margin-block-end: 5px;
-                font: $heading5;
+        font: $heading5;
+      }
+
+      p:nth-child(2) {
+        text-align: left;
+
+        a {
+          color: $black;
+          text-decoration: none;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+
+    .share {
+      @include flex-row;
+      align-items: flex-start;
+      p:first-child {
+        margin-right: 20px;
+        font: $heading5;
+      }
+    }
+  }
+
+  hr {
+    margin-top: 30px;
+    border-top: solid 1px $black;
+  }
+}
+
+@media (max-width: 767px) {
+    nav.navbar {
+        .nav_title {
+            margin-top: 20px;
+            .main_title {
+                display: none;
             }
+    
+            .share {
+                align-items: center;
+            }
+        }
+        
+        hr {
+            margin-top: 10px;
+        }
+        
+    }
+}
 
-            p:nth-child(2) {
-                text-align: left;
-
-                a {
-                    color: $black;
-                    text-decoration: none;
-
-                    &:hover {text-decoration: underline;}
+@media (min-width: 768px) and (max-width: 991px) {
+    nav.navbar {
+        .nav_title {
+            .main_title {
+                width: calc(100% - 78px);
+                margin-right: 0;
+                p:first-child {
+                    text-align: left;
                 }
             }
-        }
 
-        .share {
-            @include flex-row;
-            width: auto;
-            justify-content: flex-end;
-            p:first-child {
-                font: $heading5;
+            .share {
+                width: 100%;
+                margin-top: 20px;
             }
         }
+
+        hr {
+            margin-top: 10px;
+        }
     }
+}
+@media (max-width: 992px) {
+  nav.navbar {
+    .nav_title {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
 }

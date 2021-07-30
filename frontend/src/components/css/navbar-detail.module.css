@@ -1,7 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Lora&family=Merriweather:wght@400;700&display=swap");
+p, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+.loadmore {
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
 body {
   margin: 0;
   font: normal normal normal 16px/160% Lora, Serif;
+}
+
+@media (max-width: 991px) {
+  body {
+    font-size: 14px;
+  }
 }
 
 .container {
@@ -17,6 +33,30 @@ body {
 .title::first-letter {
   color: #C9A227;
   font: normal normal 700 30px/160% Merriweather, Serif;
+}
+
+@media (max-width: 991px) {
+  .title {
+    font-size: 20px;
+  }
+  .title::first-letter {
+    font-size: 25px;
+  }
+}
+
+.loadmore {
+  display: block;
+  background: #C9A227;
+  font: normal normal 700 20px/160% Merriweather, Serif;
+  border-radius: 5px;
+  margin: 0 auto;
+  padding: 10px 20px;
+}
+
+@media (max-width: 992px) {
+  .load-more {
+    font-size: 14px;
+  }
 }
 
 @media (min-width: 992px) and (max-width: 1100px) {
@@ -40,7 +80,7 @@ body {
 nav.navbar {
   max-width: 1520px;
   margin: 0 auto;
-  padding-top: 20px;
+  padding-top: 0px;
   padding-bottom: 10px;
   position: fixed;
   top: 0;
@@ -55,6 +95,8 @@ nav.navbar {
 nav.navbar .menu {
   display: flex;
   flex-flow: row wrap;
+  padding-left: 60px;
+  padding-right: 60px;
 }
 
 nav.navbar .menu ul {
@@ -116,11 +158,13 @@ nav.navbar .menu form button {
 nav.navbar .nav_title {
   display: flex;
   flex-flow: row wrap;
-  margin-top: 10px;
+  margin-top: 30px;
+  padding-left: 60px;
+  padding-right: 60px;
 }
 
 nav.navbar .nav_title .back_container {
-  width: calc(78 - 30px);
+  width: calc(78px - 30px);
   height: 48px;
   margin-right: 30px;
 }
@@ -133,7 +177,7 @@ nav.navbar .nav_title .back_container a {
 }
 
 nav.navbar .nav_title .main_title {
-  width: calc(auto - 78px);
+  width: auto;
   margin-right: 30px;
 }
 
@@ -158,11 +202,55 @@ nav.navbar .nav_title .main_title p:nth-child(2) a:hover {
 nav.navbar .nav_title .share {
   display: flex;
   flex-flow: row wrap;
-  width: auto;
-  justify-content: flex-end;
+  align-items: flex-start;
 }
 
 nav.navbar .nav_title .share p:first-child {
+  margin-right: 20px;
   font: normal normal 700 20px/160% Merriweather, Serif;
+}
+
+nav.navbar hr {
+  margin-top: 30px;
+  border-top: solid 1px #000000;
+}
+
+@media (max-width: 767px) {
+  nav.navbar .nav_title {
+    margin-top: 20px;
+  }
+  nav.navbar .nav_title .main_title {
+    display: none;
+  }
+  nav.navbar .nav_title .share {
+    align-items: center;
+  }
+  nav.navbar hr {
+    margin-top: 10px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  nav.navbar .nav_title .main_title {
+    width: calc(100% - 78px);
+    margin-right: 0;
+  }
+  nav.navbar .nav_title .main_title p:first-child {
+    text-align: left;
+  }
+  nav.navbar .nav_title .share {
+    width: 100%;
+    margin-top: 20px;
+  }
+  nav.navbar hr {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 992px) {
+  nav.navbar .nav_title {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 /*# sourceMappingURL=navbar-detail.module.css.map */
