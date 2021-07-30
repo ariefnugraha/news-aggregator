@@ -1,111 +1,136 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import style from './css/detail.module.css';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 import Navbar from '../components/Navbar';
 import NavbarDetail from '../components/NavbarDetail';
 import NewsCard from '../components/NewsCard';
+import DetailLatest from '../components/DetailLatest';
 import Shuffle from '../components/Shuffle';
+import Footer from '../components/Footer';
 
-const Detail = () => {
-
+const Detail = (props) => {
+    const newsTitle = props.location.state.newsTitle;
     const [scrollPosition, setscrollPosition] = useState(0);
-    const handleScroll = () => {
-        setscrollPosition(window.scrollY);
-    }
-
+    const [news, setnews] = useState([]);
+    const [categoryNews, setcategoryNews] = useState([]);
     let renderNavbar = <Navbar />;
+    let renderNewsByCategory;
 
+    //GET NEWS DETAIL
     useEffect(() => {
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
+        axios.get("http://localhost/news/backend/api/get/news-detail.php", {
+            params: { title: newsTitle }
+        })
+            .then(response => {
+                let newsId = response.data[0].id;
+                let category = response.data[0].category;
+                setnews(response.data);
+
+                //GET NEWS BASED ON CATEGORY
+                axios.get("http://localhost/news/backend/api/get/news-category.php", {
+                    params: {
+                        category,
+                        "limit-data": 5,
+                        "id": newsId
+                    }
+                })
+                    .then(response => setcategoryNews(response.data))
+                    .catch(error => console.log(error))
+            })
+            .catch(error => console.log(error))
+    }, [newsTitle]);
+
+    //CHANGE NAVBAR WHEN SCROLL
+    useEffect(() => {
+        const scroll = () => setscrollPosition(window.scrollY);
+        window.addEventListener("scroll", scroll);
+        return () => {
+            window.removeEventListener("scroll", scroll);
+        };
     }, [scrollPosition]);
 
-    scrollPosition > 200 ? renderNavbar = <NavbarDetail /> : renderNavbar = <Navbar />
+    //CHECK IF NEWS ALREADY GET FROM SERVER OR NOT
+    if (news[0] !== undefined || news.length > 0) {
+        scrollPosition > 350 ? renderNavbar = <NavbarDetail title={news[0].title} writer={news[0].author} category={news[0].category} /> : renderNavbar = <Navbar forStyle={{
+            "position": "fixed",
+            "top": 0,
+            "left": 0,
+            "right": 0,
+            "background-color": "#fff"
+        }} />
 
-    return (
-        
-        <div className={style.container}>
-            {/* START NAVBAR */}
-            {renderNavbar}
-            {/* END NAVBAR */}
-                
-            {/* START ARTICLE     */}
-            <section className={style.article}>
-                <h1>Indonesia calls for international support to resolve Israel-Palestine crisis</h1>
-                <p className={style.subtitle}>Indonesia has reiterated its call for international leaders' support to end violence during and ahead of international forums that seek to resolve the Israeli-Palestinian conflict. "Indonesia strongly condemns Israel’s attacks, which have resulted in the loss of hundreds of lives, including women and children. Israel's aggression must be put to a stop," President Joko "Jokowi" Widodo said on Twitter on Saturday.
-                </p>
-                <div className={style.image}>
-                    <img src="https://mojok.co/wp-content/uploads/2019/06/menangis-laki-laki.jpg" alt="TITLE" />
+        renderNewsByCategory = categoryNews.map((news) => {
+            return <NewsCard key={news.id} width={{ width: "20%" }} title={news.title} description={news.description} image={news.image} />
+        });
+
+        console.log(scrollPosition);
+
+        return (
+            <React.Fragment>
+                <div className={style.container}>
+                    {/* START NAVBAR */}
+                    {renderNavbar}
+                    {/* END NAVBAR */}
+
+                    {/* START ARTICLE     */}
+                    <section className={style.article}>
+                        <h1>{news[0].title}</h1>
+                        <p className={style.subtitle}>{news[0].description}
+                        </p>
+                        <div className={style.image}>
+                            <img src={news[0].image} alt="TITLE" />
+                        </div>
+                        <div className={style.info}>
+                            <Link to="#">{news[0].author}</Link>
+                            <span>11 Januari 2021</span>
+                            <Link to="#">General</Link>
+                        </div>
+
+                        <p>{news[0].content}</p>
+
+                        <hr></hr>
+
+                        <span className={style.writer}>
+                            By <Link to="#">{news[0].author}</Link>
+                        </span>
+                        <Link className={style.read_original} to={news[0].link} target="_blank">Read in Original Source</Link>
+                    </section>
+                    {/* END ARTICLE */}
+
+                    {/* START MORE */}
+                    <section className={style.more}>
+                        <p className={style.title}>More in {news[0].category}</p>
+                        <div className={style.flex}>
+                            {renderNewsByCategory}
+                        </div>
+
+                    </section>
+                    {/* END MORE */}
+
+                    {/* START LATEST */}
+                    <section className={style.latest}>
+                        <p className={style.title}>Latest</p>
+                        <DetailLatest newsId={news[0].id} />
+                    </section>
+                    {/* END LATEST */}
+
+                    {/* START SHUFFLE */}
+                    <section className={style.shuffle}>
+                        <p className={style.title}>Shuffle This Week</p>
+                        <Shuffle newsId={news[0].id} />
+                    </section>
+                    {/* END SHUFFLE */}
+
+
                 </div>
-                <div className={style.info}>
-                    <Link to="#">Sabrina Muhammad Sholihin</Link>
-                    <span>11 Januari 2021</span>
-                    <Link to="#">General</Link>
-                </div>
 
-                <p>Indonesia has reiterated its call for international leaders' support to end violence during and ahead of international forums that seek to resolve the Israeli-Palestinian conflict.</p>
+                <Footer />
+            </React.Fragment>
+        )
 
-                <p>"Indonesia strongly condemns Israel’s attacks, which have resulted in the loss of hundreds of lives, including women and children. Israel's aggression must be put to a stop," President Joko "Jokowi" Widodo said on Twitter on Saturday</p>
-
-                <p>Indonesia has reiterated its call for international leaders' support to end violence during and ahead of international forums that seek to resolve the Israeli-Palestinian conflict.
-
-                    "Indonesia strongly condemns Israel’s attacks, which have resulted in the loss of hundreds of lives, including women and children. Israel's aggression must be put to a stop," President Joko "Jokowi" Widodo said on Twitter on Saturday
-
-                    Jokowi has been urging the United Nations Security Council, which was due to meet on Sunday, to take measures against what he described as repeated violations carried out by Israel, saying on Monday that Indonesia would continue to stand with the people of Palestine.
-
-                    Foreign Minister Retno Marsudi attended an emergency meeting of the Organization of Islamic Cooperation (OIC) on Sunday evening, in which she tried to push the OIC to have a stronger stance on ending the violence
-
-                    “We are focusing on gaining international support so we can put huge pressure on Israel to stop the violence,” Abdul Kadir Jailani, director general for Asia Pacific and Africa, who accompanied Retno at the OIC meeting, told The Jakarta Post on Sunday.
-
-                    The tensions between Israel and Palestine drew international outcry after the severe escalation of violence in Gaza and East Jerusalem. Israeli air strikes on the Gaza Strip killed eight children and demolished a building housing media offices, sparking international outcry.
-
-                    Before the OIC meeting, Retno reached out to several counterparts, such as the foreign ministers of Egypt, Malaysia and Brunei, regarding this issue.
-
-                    At the OIC meetings, Indonesia proposed three key points to resolve the conflict, including the need to unite support for Palestinian independence.
-
-                    Retno also suggested that each country use its influence to encourage a ceasefire and that the OIC has to work harder to restart credible multilateral negotiations.
-
-                    “Together we have to act now. The Palestinian people deserve justice. And I emphasize that Indonesia will continue to support the Palestinian struggle,” she told a press conference on the sidelines of the OIC meeting.
-
-                    Later on Sunday, in a statement issued after the emergency meeting, the OIC condemned "in the strongest terms Israel's brutal aggression" against the Palestinian people. The statement, carried by Saudi state media, called for an immediate halt to the attacks on civilians, saying they were "a violation of international law and the UN resolutions", Reuters reported.
-                </p>
-
-                <hr></hr>
-
-                <span className={style.writer}>
-                    By <Link to="#">Alexander Christian Hutabarat</Link>
-                </span>
-                <Link className={style.read_original} to="#">Read in Original Source</Link>
-            </section>
-            {/* END ARTICLE */}
-
-            {/* START MORE */}
-            <section className={style.more}>
-                <p className={style.title}>More in General</p>
-                <div className={style.flex}>
-                <NewsCard width={{width: "20%"}} />
-                <NewsCard width={{width: "20%"}} />
-                <NewsCard width={{width: "20%"}} />
-                <NewsCard width={{width: "20%"}} />
-                <NewsCard width={{width: "20%"}} />
-                </div>
-                
-            </section>
-            {/* END MORE */}
-
-            {/* START LATEST */}
-            <section className={style.latest}></section>
-            {/* END LATEST */}
-
-            {/* START SHUFFLE */}
-            <section className={style.shuffle}>
-                <p className={style.title}>Shuffle This Week</p>
-                <Shuffle/>
-            </section>
-            {/* END SHUFFLE */}
-        </div>
-    )
+    } else { return <p>GAADA</p> }
 }
 
 export default Detail;
