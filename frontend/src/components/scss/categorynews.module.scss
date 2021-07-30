@@ -67,13 +67,20 @@
 
 @media (min-width: 768px) and (max-width: 992px) {
     .news_list {
+        margin-left: -20px;
+        width: calc(100% + 20px);
         & > * {
             margin-left: 20px !important;
         }
 
         .news_item {
+
             &:first-child, &:nth-child(n+2):nth-child(-n+3), &:nth-child(n + 4):nth-child(-n + 7) {
                 width: calc(50% - 20px) !important;
+            }
+
+            .image_container {
+                height: 200px;
             }
         }
     }
@@ -81,7 +88,6 @@
 
 @media (max-width: 991px) {
     .news_list {
-        @include mx-20;
         margin-top: 10px;
         
         & > * {
