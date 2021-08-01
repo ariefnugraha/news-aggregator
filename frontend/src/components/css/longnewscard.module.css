@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora&family=Merriweather:wght@400;700&display=swap");
+p, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+.loadmore {
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+body {
+  margin: 0;
+  font: normal normal normal 16px/160% Lora, Serif;
+}
+
+@media (max-width: 991px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+.container {
+  max-width: 1520px;
+  margin: 0 auto;
+}
+
+.title {
+  font: normal normal 700 25px/160% Merriweather, Serif;
+  letter-spacing: 6px;
+}
+
+.title::first-letter {
+  color: #C9A227;
+  font: normal normal 700 30px/160% Merriweather, Serif;
+}
+
+@media (max-width: 991px) {
+  .title {
+    font-size: 20px;
+  }
+  .title::first-letter {
+    font-size: 25px;
+  }
+}
+
+.loadmore {
+  display: block;
+  background: #C9A227;
+  font: normal normal 700 20px/160% Merriweather, Serif;
+  border-radius: 5px;
+  margin: 0 auto;
+  padding: 10px 20px;
+}
+
+@media (max-width: 992px) {
+  .load-more {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1100px) {
+  .container {
+    max-width: 900px;
+  }
+}
+
+@media (min-width: 1101px) and (max-width: 1200px) {
+  .container {
+    max-width: 1100px;
+  }
+}
+
+@media (min-width: 1201px) and (max-width: 1400px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+
+.longnewscard {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0 0 20px 0px;
+  padding-bottom: 20px;
+  border-bottom: solid 1px #000000;
+}
+
+.longnewscard p, .longnewscard h2 {
+  margin: 0;
+}
+
+.longnewscard > * {
+  margin-left: 20px;
+}
+
+.longnewscard .info {
+  width: calc(25% - 20px);
+  font: normal normal normal 14px/160% Lora, Serif;
+  color: #777777;
+}
+
+.longnewscard .info:first-child {
+  margin-left: 0;
+}
+
+.longnewscard .info a {
+  color: #C9A227;
+  text-decoration: none;
+}
+
+.longnewscard .info span {
+  color: #C9A227;
+}
+
+.longnewscard .caption {
+  width: calc(40% - 20px);
+}
+
+.longnewscard .caption h2 a {
+  font: normal normal 700 20px/160% Merriweather, Serif;
+  color: #000000;
+  text-decoration: none;
+}
+
+.longnewscard .caption p {
+  margin-top: 10px;
+  font: normal normal normal 14px/160% Lora, Serif;
+  color: #777777;
+}
+
+.longnewscard .image_container {
+  width: calc(35% - 20px);
+}
+
+.longnewscard .image_container img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+/*# sourceMappingURL=longnewscard.module.css.map */
